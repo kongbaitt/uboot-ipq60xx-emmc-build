@@ -73,6 +73,6 @@ echo "Convert elf to mbn"
 python3 scripts_mbn/elftombn.py -f ./u-boot -o ./u-boot.mbn -v 6
 
 echo "Copy u-boot.mbn to root directory"
-mv ./u-boot.mbn ../openwrt-ipq6018-u-boot.mbn
+mv ./u-boot.mbn ../uboot-ipq60xx-emmc.bin
 
 echo "Done!"
