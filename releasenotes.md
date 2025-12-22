@@ -5,6 +5,7 @@
 ### ✨ 功能更新
 
 - 添加 bootconfig 命令，用于切换启动分区
+- 添加 untar 命令，用于解析 sysupgrade tar image
 
 ### 📢 其他更新
 
