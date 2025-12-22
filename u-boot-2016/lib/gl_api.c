@@ -165,9 +165,10 @@ void check_button_is_press(void)
 
 // 只检查文件的开头几个特殊 Magic Num
 int check_fw_type(void *address) {
-	u32 *header_magic = (u32 *)(address);
+	u32 *header_magic1 = (u32 *)(address);
+	u32 *header_magic2 = (u32 *)(address + 0x4);
 
-	switch (*header_magic) {
+	switch (*header_magic1) {
 		case HEADER_MAGIC_CDT:
 			return FW_TYPE_CDT;
 		case HEADER_MAGIC_ELF:
@@ -181,6 +182,10 @@ int check_fw_type(void *address) {
 				return FW_TYPE_FACTORY_KERNEL12M;
 			else
 				return FW_TYPE_FIT;
+		case HEADER_MAGIC_SYSUPGRADE1:
+			if (*header_magic2 == HEADER_MAGIC_SYSUPGRADE2)
+				return FW_TYPE_SYSUPGRADE;
+			return FW_TYPE_UNKNOWN;
 		case HEADER_MAGIC_UBI:
 			return FW_TYPE_UBI;
 		default:
@@ -214,6 +219,9 @@ void print_fw_type(int fw_type) {
 			break;
 		case FW_TYPE_JDCLOUD:
 			printf("JDCLOUD OFFICIAL FIRMWARE *");
+			break;
+		case FW_TYPE_SYSUPGRADE:
+			printf("SYSUPGRADE FIRMWARE *");
 			break;
 		case FW_TYPE_UBI:
 			printf("UBI FIRMWARE *");

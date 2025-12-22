@@ -77,10 +77,10 @@ U-Boot 截图示例（[点击此处](./screenshots.md) 查看所有网页截图�
 ### 网址说明
 | 功能        | 网址                            | 备注                                |
 | :---------- | :----------------------------- | :--------------------------------- |
-| 更新固件     | http://192.168.1.1             | 支持内核大小为 6MB 和 12MB 的固件更新 |
+| 更新固件     | http://192.168.1.1             | 支持内核大小为 6MB / 12MB 的 factory / sysupgrade 格式的固件更新 |
 | 更新 ART    | http://192.168.1.1/art.html    | ART 包含路由器网卡 MAC 及无线校准数据 |
 | 更新 CDT    | http://192.168.1.1/cdt.html    | CDT 文件不得小于 10 KB（10240 Bytes） |
-| 更新 IMG    | http://192.168.1.1/img.html    | 可更新 GPT 分区表或者 eMMC IMG 镜像 |
+| 更新 IMG    | http://192.168.1.1/img.html    | 支持刷写 eMMC 的 GPT 分区表或镜像 |
 | 更新 U-Boot | http://192.168.1.1/uboot.html  | U-Boot 大小不能超过 640 KB（655360 Bytes）|
 | 启动 uImage | http://192.168.1.1/uimage.html | Initramfs uImage，可直接上传至内存并启动 |
 
